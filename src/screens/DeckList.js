@@ -27,13 +27,16 @@ const DATA = [
   }
 ];
 
-export default function DeckList() {
+export default function DeckList(props) {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
         renderItem={({ item }) => (
-          <TouchableOpacity style={styles.item}>
+          <TouchableOpacity
+            style={styles.item}
+            onPress={() => props.navigation.navigate("DeckDetails")}
+          >
             <View style={styles.container}>
               <Text style={styles.title}>{item.title}</Text>
               <Text style={styles.subTitle}>{item.cardsCount} cards</Text>

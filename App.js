@@ -1,13 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import DeckList from "./src/screens/DeckList";
 import DeckDetails from "./src/screens/DeckDetails";
+import MyStack from "./src/Navigator";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <DeckDetails />
-    </View>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
   );
 }
 
