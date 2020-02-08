@@ -7,12 +7,13 @@ import {
   TouchableOpacity
 } from "react-native";
 
-export default function DeckDetails() {
+export default function DeckDetails(props) {
+  const deck = props.route.params.deck;
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.largeText}>Deck 1</Text>
-        <Text style={styles.smallText}>10 cards</Text>
+        <Text style={styles.largeText}>{deck.title}</Text>
+        <Text style={styles.smallText}>{deck.cardsCount} cards</Text>
       </View>
       <View>
         <TouchableOpacity style={styles.button}>

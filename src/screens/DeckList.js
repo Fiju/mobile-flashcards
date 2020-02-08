@@ -35,7 +35,11 @@ export default function DeckList(props) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
-            onPress={() => props.navigation.navigate("DeckDetails")}
+            onPress={() =>
+              props.navigation.navigate("DeckDetails", {
+                deck: item
+              })
+            }
           >
             <View style={styles.container}>
               <Text style={styles.title}>{item.title}</Text>
