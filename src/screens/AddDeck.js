@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   KeyboardAvoidingView,
@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
+import { saveDeckTitle } from "../api";
 
 export default function AddDeck(props) {
+  const [title, setTitle] = useState("");
   return (
     <KeyboardAvoidingView behavior="padding" style={styles.container}>
       <Text style={styles.questionText}>
@@ -17,11 +19,16 @@ export default function AddDeck(props) {
       <TextInput
         style={styles.textInput}
         placeholder="Title"
-        value={"New Deck"}
-        onChangeText={text => console.log(text)}
+        value={title}
+        onChangeText={text => setTitle(text)}
       />
-      <TouchableOpacity style={styles.buttonStyle}>
-        <Text style={{ fontSize: 20 }}>Submit</Text>
+      <TouchableOpacity disabled={!title} style={styles.buttonStyle}>
+        <Text
+          style={{ fontSize: 20 }}
+          onPress={title ? () => saveDeckTitle(title) : () => {}}
+        >
+          Submit
+        </Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
@@ -32,8 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
-    backgroundColor: "orange"
+    padding: 20
   },
   questionText: {
     fontSize: 36,
