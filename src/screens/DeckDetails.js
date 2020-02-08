@@ -13,7 +13,7 @@ export default function DeckDetails(props) {
     <View style={styles.container}>
       <View>
         <Text style={styles.largeText}>{deck.title}</Text>
-        <Text style={styles.smallText}>{deck.cardsCount} cards</Text>
+        <Text style={styles.smallText}>{deck.questions.length} cards</Text>
       </View>
       <View>
         <TouchableOpacity style={styles.button}>
