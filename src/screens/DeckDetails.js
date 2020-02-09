@@ -34,7 +34,14 @@ export default function DeckDetails(props) {
         >
           <Text style={styles.smallText}>Add Card</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonInverse}>
+        <TouchableOpacity
+          style={styles.buttonInverse}
+          onPress={() =>
+            props.navigation.navigate("Quiz", {
+              deck
+            })
+          }
+        >
           <Text style={[styles.smallText, { color: "#FFF" }]}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
