@@ -22,9 +22,9 @@ export default function AddCard(props) {
   };
 
   const submit = () => {
-    const { deckKey } = props.route.params;
+    const { deckKey, update } = props.route.params;
 
-    addCardToDeck(deckKey, { question, answer });
+    addCardToDeck(deckKey, { question, answer }).then(() => update());
 
     goBack();
   };

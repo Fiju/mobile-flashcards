@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -6,9 +6,16 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
+import { getDeck } from "../api";
 
 export default function DeckDetails(props) {
-  const deck = props.route.params.deck;
+  const [deck, updateDeck] = useState(props.route.params.deck);
+
+  const onCardAdd = () => {
+    props.route.params.refreshList();
+    getDeck(deck.title).then(updatedDeck => updateDeck(updatedDeck));
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -16,7 +23,15 @@ export default function DeckDetails(props) {
         <Text style={styles.smallText}>{deck.questions.length} cards</Text>
       </View>
       <View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() =>
+            props.navigation.navigate("AddCard", {
+              deckKey: deck.title,
+              update: onCardAdd
+            })
+          }
+          style={styles.button}
+        >
           <Text style={styles.smallText}>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonInverse}>

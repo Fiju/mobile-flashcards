@@ -16,7 +16,10 @@ export default function DeckList(props) {
     setDecks(await getDecks());
   }, []);
 
-  console.log(decks);
+  const refreshList = async () => {
+    setDecks(await getDecks());
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {decks && (
@@ -27,7 +30,8 @@ export default function DeckList(props) {
               style={styles.item}
               onPress={() =>
                 props.navigation.navigate("DeckDetails", {
-                  deck: item
+                  deck: item,
+                  refreshList
                 })
               }
             >
