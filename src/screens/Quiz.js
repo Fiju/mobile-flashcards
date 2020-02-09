@@ -4,6 +4,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity
 } from "react-native-gesture-handler";
+import { clearLocalNotification } from "../notfication";
 
 export default function(props) {
   const questions = props.route.params.deck.questions;
@@ -37,7 +38,10 @@ export default function(props) {
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, { borderWidth: 2 }]}
-            onPress={() => props.navigation.goBack()}
+            onPress={() => {
+              clearLocalNotification();
+              props.navigation.goBack();
+            }}
           >
             <Text style={{ fontSize: 25, textAlign: "center" }}>Go Back</Text>
           </TouchableOpacity>
