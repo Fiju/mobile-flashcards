@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,6 +10,10 @@ import { getDeck } from "../api";
 
 export default function DeckDetails(props) {
   const [deck, updateDeck] = useState(props.route.params.deck);
+
+  useEffect(() => {
+    props.route.params.refreshList();
+  }, []);
 
   const onCardAdd = () => {
     props.route.params.refreshList();

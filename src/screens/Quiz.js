@@ -14,16 +14,34 @@ export default function(props) {
   return (
     <View style={styles.container}>
       {!(questions.length >= currentQuestion) ? (
-        <Text
-          style={{
-            fontSize: 40,
-            fontWeight: "bold",
-            justifyContent: "center",
-            textAlign: "center"
-          }}
-        >
-          {correctAnsers} correct answers out of {questions.length}
-        </Text>
+        <View>
+          <Text
+            style={{
+              fontSize: 40,
+              fontWeight: "bold",
+              justifyContent: "center",
+              textAlign: "center"
+            }}
+          >
+            {correctAnsers} correct answers out of {questions.length}
+          </Text>
+          <TouchableOpacity
+            style={[styles.button, { borderWidth: 2 }]}
+            onPress={() => {
+              setCurrentQuestion(1);
+              toggleAnswerView(false);
+              setCorrectAnswers(0);
+            }}
+          >
+            <Text style={{ fontSize: 25, textAlign: "center" }}>Retake</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.button, { borderWidth: 2 }]}
+            onPress={() => props.navigation.goBack()}
+          >
+            <Text style={{ fontSize: 25, textAlign: "center" }}>Go Back</Text>
+          </TouchableOpacity>
+        </View>
       ) : (
         <>
           <View style={styles.progress}>
@@ -33,18 +51,32 @@ export default function(props) {
           </View>
           <View style={styles.question}>
             <View>
-              <Text style={{ fontSize: 30, fontWeight: "bold" }}>
+              <Text
+                style={{
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  textAlign: "center"
+                }}
+              >
                 {questions[currentQuestion - 1].question}
               </Text>
               {answerView ? (
-                <Text style={{ fontSize: 25, marginVertical: 20 }}>
+                <Text
+                  style={{
+                    fontSize: 25,
+                    marginVertical: 20,
+                    textAlign: "center"
+                  }}
+                >
                   {questions[currentQuestion - 1].answer}
                 </Text>
               ) : (
                 <TouchableWithoutFeedback
                   onPress={() => toggleAnswerView(true)}
                 >
-                  <Text style={{ fontSize: 20, color: "red" }}>
+                  <Text
+                    style={{ fontSize: 20, color: "red", marginVertical: 20 }}
+                  >
                     Show Answer
                   </Text>
                 </TouchableWithoutFeedback>
