@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DeckList from "./screens/DeckList";
 import DeckDetails from "./screens/DeckDetails";
 import AddDeck from "./screens/AddDeck";
+import AddCard from "./screens/AddCard";
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ function HomeStackScreen() {
     <Stack.Navigator initialRouteName="DeckList">
       <Stack.Screen name="DeckList" component={DeckList} />
       <Stack.Screen name="DeckDetails" component={DeckDetails} />
+      <Stack.Screen name="AddCard" component={AddCard} />
     </Stack.Navigator>
   );
 }
