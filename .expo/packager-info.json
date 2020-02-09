@@ -2,8 +2,8 @@
   "expoServerPort": 19000,
   "expoServerNgrokUrl": "https://ia-i9k.anonymous.mobile-flashcards.exp.direct",
   "packagerNgrokUrl": "https://packager.ia-i9k.anonymous.mobile-flashcards.exp.direct",
-  "ngrokPid": 42500,
+  "ngrokPid": 39135,
   "devToolsPort": 19002,
   "packagerPort": 19004,
-  "packagerPid": 42480
+  "packagerPid": 39118
 }

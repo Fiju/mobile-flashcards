@@ -22,13 +22,12 @@ export default function AddDeck(props) {
         value={title}
         onChangeText={text => setTitle(text)}
       />
-      <TouchableOpacity disabled={!title} style={styles.buttonStyle}>
-        <Text
-          style={{ fontSize: 20 }}
-          onPress={title ? () => saveDeckTitle(title) : () => {}}
-        >
-          Submit
-        </Text>
+      <TouchableOpacity
+        disabled={!title}
+        style={styles.buttonStyle}
+        onPress={title ? () => saveDeckTitle(title) : () => {}}
+      >
+        <Text style={{ fontSize: 20 }}>Submit</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
