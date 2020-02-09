@@ -25,8 +25,8 @@ export default function DeckList(props) {
   return (
     <SafeAreaView style={styles.container}>
       {view ? (
-        decks && (
-          <>
+        <>
+          {decks && (
             <FlatList
               data={Object.values(decks)}
               renderItem={({ item }) => (
@@ -49,14 +49,14 @@ export default function DeckList(props) {
               )}
               keyExtractor={item => item.title}
             />
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => toggleView(!view)}
-            >
-              <Text style={styles.smallText}>Add new deck</Text>
-            </TouchableOpacity>
-          </>
-        )
+          )}
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => toggleView(!view)}
+          >
+            <Text style={styles.smallText}>Add new deck</Text>
+          </TouchableOpacity>
+        </>
       ) : (
         <AddDeck
           toggleView={() => toggleView(!view)}
