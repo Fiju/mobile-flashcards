@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
-import { saveDeckTitle } from "../api";
+import { saveDeckTitle, getDecks } from "../api";
 
 export default function AddDeck(props) {
   const [title, setTitle] = useState("");
@@ -25,9 +25,24 @@ export default function AddDeck(props) {
       <TouchableOpacity
         disabled={!title}
         style={styles.buttonStyle}
-        onPress={title ? () => saveDeckTitle(title) : () => {}}
+        onPress={
+          title
+            ? async () => {
+                await saveDeckTitle(title);
+                const decks = await getDecks();
+                props.toggleView();
+                props.navigate(decks[title]);
+              }
+            : () => {}
+        }
       >
         <Text style={{ fontSize: 20 }}>Submit</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() => props.toggleView()}
+      >
+        <Text style={{ fontSize: 20 }}>Go back</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );

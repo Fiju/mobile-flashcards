@@ -9,8 +9,10 @@ import {
   Dimensions
 } from "react-native";
 import { getDecks } from "../api";
+import AddDeck from "./AddDeck";
 
 export default function DeckList(props) {
+  const [view, toggleView] = useState(true);
   const [decks, setDecks] = useState();
   useEffect(async () => {
     setDecks(await getDecks());
@@ -22,28 +24,48 @@ export default function DeckList(props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      {decks && (
-        <FlatList
-          data={Object.values(decks)}
-          renderItem={({ item }) => (
+      {view ? (
+        decks && (
+          <>
+            <FlatList
+              data={Object.values(decks)}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.item}
+                  onPress={() =>
+                    props.navigation.navigate("DeckDetails", {
+                      deck: item,
+                      refreshList
+                    })
+                  }
+                >
+                  <View style={styles.container}>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.subTitle}>
+                      {item.questions.length} cards
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+              keyExtractor={item => item.title}
+            />
             <TouchableOpacity
-              style={styles.item}
-              onPress={() =>
-                props.navigation.navigate("DeckDetails", {
-                  deck: item,
-                  refreshList
-                })
-              }
+              style={styles.button}
+              onPress={() => toggleView(!view)}
             >
-              <View style={styles.container}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.subTitle}>
-                  {item.questions.length} cards
-                </Text>
-              </View>
+              <Text style={styles.smallText}>Add new deck</Text>
             </TouchableOpacity>
-          )}
-          keyExtractor={item => item.title}
+          </>
+        )
+      ) : (
+        <AddDeck
+          toggleView={() => toggleView(!view)}
+          navigate={deck =>
+            props.navigation.navigate("DeckDetails", {
+              deck,
+              refreshList
+            })
+          }
         />
       )}
     </SafeAreaView>
@@ -74,5 +96,17 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomWidth: 1,
     flex: 1
+  },
+  smallText: {
+    fontSize: 30
+  },
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderColor: "#000",
+    borderWidth: 2,
+    borderRadius: 5,
+    fontSize: 30,
+    margin: 5
   }
 });
