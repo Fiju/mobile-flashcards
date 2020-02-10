@@ -6,6 +6,7 @@ import {
 } from "react-native-gesture-handler";
 import { clearLocalNotification } from "../lib/notfication";
 import Button from "../components/Button";
+import Label from "../components/Label";
 
 export default function(props) {
   const questions = props.route.params.deck.questions;
@@ -13,7 +14,7 @@ export default function(props) {
   const [answerView, toggleAnswerView] = useState(false);
   const [correctAnsers, setCorrectAnswers] = useState(0);
 
-  return (
+  return questions.length ? (
     <View style={styles.container}>
       {!(questions.length >= currentQuestion) ? (
         <View>
@@ -105,6 +106,10 @@ export default function(props) {
           </View>
         </>
       )}
+    </View>
+  ) : (
+    <View style={{ flex: 1, justifyContent: "center" }}>
+      <Label label="There is no card added to this deck yet" size="large" />
     </View>
   );
 }
