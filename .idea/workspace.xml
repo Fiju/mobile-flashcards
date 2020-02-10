@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b1d81220-d3d0-4ede-aef9-783c57f8cead" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.expo/packager-info.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/packager-info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/AddDeck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AddDeck.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

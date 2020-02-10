@@ -14,8 +14,11 @@ import AddDeck from "./AddDeck";
 export default function DeckList(props) {
   const [view, toggleView] = useState(true);
   const [decks, setDecks] = useState();
-  useEffect(async () => {
-    setDecks(await getDecks());
+  useEffect(() => {
+    async function fetchData() {
+      setDecks(await getDecks());
+    }
+    fetchData();
   }, []);
 
   const refreshList = async () => {
