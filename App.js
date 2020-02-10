@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import DeckList from "./src/screens/DeckList";
 import DeckDetails from "./src/screens/DeckDetails";
 import MyStack from "./src/Navigator";
-import { setLocalNotification } from "./src/notfication";
+import { setLocalNotification } from "./src/lib/notfication";
 
 export default class App extends React.Component {
   componentDidMount() {

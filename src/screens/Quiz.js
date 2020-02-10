@@ -4,7 +4,7 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity
 } from "react-native-gesture-handler";
-import { clearLocalNotification } from "../notfication";
+import { clearLocalNotification } from "../lib/notfication";
 
 export default function(props) {
   const questions = props.route.params.deck.questions;

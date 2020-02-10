@@ -8,7 +8,7 @@ import {
   Text,
   Dimensions
 } from "react-native";
-import { getDecks } from "../api";
+import { getDecks } from "../lib/api";
 import AddDeck from "./AddDeck";
 
 export default function DeckList(props) {

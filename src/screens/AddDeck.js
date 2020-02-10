@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
-import { saveDeckTitle, getDecks } from "../api";
+import { saveDeckTitle, getDecks } from "../lib/api";
 
 export default function AddDeck(props) {
   const [title, setTitle] = useState("");

@@ -6,7 +6,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
-import { getDeck } from "../api";
+import { getDeck } from "../lib/api";
 
 export default function DeckDetails(props) {
   const [deck, updateDeck] = useState(props.route.params.deck);

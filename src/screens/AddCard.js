@@ -7,7 +7,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView
 } from "react-native";
-import { addCardToDeck } from "../api";
+import { addCardToDeck } from "../lib/api";
 
 export default function AddCard(props) {
   const [question, setQuestion] = useState("");
