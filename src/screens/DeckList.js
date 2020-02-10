@@ -99,17 +99,5 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomWidth: 1,
     flex: 1
-  },
-  smallText: {
-    fontSize: 30
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderColor: "#000",
-    borderWidth: 2,
-    borderRadius: 5,
-    fontSize: 30,
-    margin: 5
   }
 });

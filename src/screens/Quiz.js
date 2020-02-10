@@ -128,12 +128,5 @@ const styles = StyleSheet.create({
     flex: 9,
     alignItems: "center",
     justifyContent: "space-evenly"
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-    fontSize: 30,
-    margin: 5
   }
 });

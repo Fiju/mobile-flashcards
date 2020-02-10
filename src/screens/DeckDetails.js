@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity
-} from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { getDeck } from "../lib/api";
 import Button from "../components/Button";
 
@@ -64,24 +58,5 @@ const styles = StyleSheet.create({
   },
   smallText: {
     fontSize: 30
-  },
-  button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderColor: "#000",
-    borderWidth: 2,
-    borderRadius: 5,
-    fontSize: 30,
-    margin: 5
-  },
-  buttonInverse: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderColor: "#000",
-    borderWidth: 2,
-    borderRadius: 5,
-    fontSize: 30,
-    backgroundColor: "#000",
-    margin: 5
   }
 });
