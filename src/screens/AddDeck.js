@@ -36,6 +36,7 @@ export default function AddDeck(props) {
             : () => {}
         }
         label="Submit"
+        buttonType="medium"
       />
       {/* <TouchableOpacity
         disabled={!title}
@@ -53,7 +54,11 @@ export default function AddDeck(props) {
       >
         <Text style={{ fontSize: 20 }}>Submit</Text>
       </TouchableOpacity> */}
-      <Button onPress={() => props.toggleView()} label="Go back" />
+      <Button
+        onPress={() => props.toggleView()}
+        label="Go back"
+        buttonType="medium"
+      />
       {/* <TouchableOpacity
         style={styles.buttonStyle}
         onPress={() => props.toggleView()}

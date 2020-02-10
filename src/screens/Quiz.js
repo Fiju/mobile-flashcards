@@ -110,6 +110,7 @@ export default function(props) {
                   setCurrentQuestion(currentQuestion + 1);
                 }}
                 label="Correct"
+                buttonType="small"
               />
               {/* <TouchableOpacity
                 style={[styles.button, { backgroundColor: "green" }]}
@@ -127,6 +128,7 @@ export default function(props) {
                   setCurrentQuestion(currentQuestion + 1);
                 }}
                 label="Incorrect"
+                buttonType="small"
               />
               {/* <TouchableOpacity
                 style={[styles.button, { backgroundColor: "red" }]}

@@ -1,9 +1,10 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import Label from "./Label";
 
-export default ({ disabled, onPress, label }) => (
+export default ({ disabled, onPress, label, buttonType }) => (
   <TouchableOpacity disabled={disabled} onPress={onPress} style={styles.button}>
-    <Text>{label}</Text>
+    <Label label={label} size={buttonType} />
   </TouchableOpacity>
 );
 

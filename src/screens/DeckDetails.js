@@ -36,6 +36,7 @@ export default function DeckDetails(props) {
             })
           }
           label="Add card"
+          buttonType="medium"
         />
         {/* <TouchableOpacity
           onPress={() =>
@@ -55,6 +56,7 @@ export default function DeckDetails(props) {
             })
           }
           label="Start Quiz"
+          buttonType="medium"
         />
         {/* <TouchableOpacity
           style={styles.buttonInverse}

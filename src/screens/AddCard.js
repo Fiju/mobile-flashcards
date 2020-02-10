@@ -52,6 +52,7 @@ export default function AddCard(props) {
           disabled={!(question.length && answer.length)}
           onPress={() => submit()}
           label="Submit"
+          buttonType="medium"
         />
         {/* <TouchableOpacity
           disabled={!(question.length && answer.length)}

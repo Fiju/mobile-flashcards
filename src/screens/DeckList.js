@@ -54,7 +54,11 @@ export default function DeckList(props) {
               keyExtractor={item => item.title}
             />
           )}
-          <Button onPress={() => toggleView(!view)} label="Add new deck" />
+          <Button
+            onPress={() => toggleView(!view)}
+            label="Add new deck"
+            buttonType="large"
+          />
           {/* <TouchableOpacity
             style={styles.button}
             onPress={() => toggleView(!view)}
