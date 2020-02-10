@@ -5,6 +5,7 @@ import {
   TouchableOpacity
 } from "react-native-gesture-handler";
 import { clearLocalNotification } from "../lib/notfication";
+import Button from "../components/Button";
 
 export default function(props) {
   const questions = props.route.params.deck.questions;
@@ -26,7 +27,15 @@ export default function(props) {
           >
             {correctAnsers} correct answers out of {questions.length}
           </Text>
-          <TouchableOpacity
+          <Button
+            onPress={() => {
+              setCurrentQuestion(1);
+              toggleAnswerView(false);
+              setCorrectAnswers(0);
+            }}
+            label="Retake"
+          />
+          {/* <TouchableOpacity
             style={[styles.button, { borderWidth: 2 }]}
             onPress={() => {
               setCurrentQuestion(1);
@@ -35,8 +44,15 @@ export default function(props) {
             }}
           >
             <Text style={{ fontSize: 25, textAlign: "center" }}>Retake</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+          </TouchableOpacity> */}
+          <Button
+            onPress={() => {
+              clearLocalNotification();
+              props.navigation.goBack();
+            }}
+            label="Go back"
+          />
+          {/* <TouchableOpacity
             style={[styles.button, { borderWidth: 2 }]}
             onPress={() => {
               clearLocalNotification();
@@ -44,7 +60,7 @@ export default function(props) {
             }}
           >
             <Text style={{ fontSize: 25, textAlign: "center" }}>Go Back</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       ) : (
         <>
@@ -87,7 +103,15 @@ export default function(props) {
               )}
             </View>
             <View>
-              <TouchableOpacity
+              <Button
+                onPress={() => {
+                  toggleAnswerView(false);
+                  setCorrectAnswers(correctAnsers + 1);
+                  setCurrentQuestion(currentQuestion + 1);
+                }}
+                label="Correct"
+              />
+              {/* <TouchableOpacity
                 style={[styles.button, { backgroundColor: "green" }]}
                 onPress={() => {
                   toggleAnswerView(false);
@@ -96,8 +120,15 @@ export default function(props) {
                 }}
               >
                 <Text style={{ fontSize: 25, color: "white" }}>Correct</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
+              </TouchableOpacity> */}
+              <Button
+                onPress={() => {
+                  toggleAnswerView(false);
+                  setCurrentQuestion(currentQuestion + 1);
+                }}
+                label="Incorrect"
+              />
+              {/* <TouchableOpacity
                 style={[styles.button, { backgroundColor: "red" }]}
                 onPress={() => {
                   toggleAnswerView(false);
@@ -105,7 +136,7 @@ export default function(props) {
                 }}
               >
                 <Text style={{ fontSize: 25, color: "white" }}>Incorrect</Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
             </View>
           </View>
         </>

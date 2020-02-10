@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from "react-native";
 import { saveDeckTitle, getDecks } from "../lib/api";
+import Button from "../components/Button";
 
 export default function AddDeck(props) {
   const [title, setTitle] = useState("");
@@ -22,7 +23,21 @@ export default function AddDeck(props) {
         value={title}
         onChangeText={text => setTitle(text)}
       />
-      <TouchableOpacity
+      <Button
+        disabled={!title}
+        onPress={
+          title
+            ? async () => {
+                await saveDeckTitle(title);
+                const decks = await getDecks();
+                props.toggleView();
+                props.navigate(decks[title]);
+              }
+            : () => {}
+        }
+        label="Submit"
+      />
+      {/* <TouchableOpacity
         disabled={!title}
         style={styles.buttonStyle}
         onPress={
@@ -37,13 +52,14 @@ export default function AddDeck(props) {
         }
       >
         <Text style={{ fontSize: 20 }}>Submit</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+      </TouchableOpacity> */}
+      <Button onPress={() => props.toggleView()} label="Go back" />
+      {/* <TouchableOpacity
         style={styles.buttonStyle}
         onPress={() => props.toggleView()}
       >
         <Text style={{ fontSize: 20 }}>Go back</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </KeyboardAvoidingView>
   );
 }

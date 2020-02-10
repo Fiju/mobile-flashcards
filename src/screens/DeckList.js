@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { getDecks } from "../lib/api";
 import AddDeck from "./AddDeck";
+import Button from "../components/Button";
 
 export default function DeckList(props) {
   const [view, toggleView] = useState(true);
@@ -53,12 +54,13 @@ export default function DeckList(props) {
               keyExtractor={item => item.title}
             />
           )}
-          <TouchableOpacity
+          <Button onPress={() => toggleView(!view)} label="Add new deck" />
+          {/* <TouchableOpacity
             style={styles.button}
             onPress={() => toggleView(!view)}
           >
             <Text style={styles.smallText}>Add new deck</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </>
       ) : (
         <AddDeck

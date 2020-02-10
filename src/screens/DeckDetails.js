@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { getDeck } from "../lib/api";
+import Button from "../components/Button";
 
 export default function DeckDetails(props) {
   const [deck, updateDeck] = useState(props.route.params.deck);
@@ -27,7 +28,16 @@ export default function DeckDetails(props) {
         <Text style={styles.smallText}>{deck.questions.length} cards</Text>
       </View>
       <View>
-        <TouchableOpacity
+        <Button
+          onPress={() =>
+            props.navigation.navigate("AddCard", {
+              deckKey: deck.title,
+              update: onCardAdd
+            })
+          }
+          label="Add card"
+        />
+        {/* <TouchableOpacity
           onPress={() =>
             props.navigation.navigate("AddCard", {
               deckKey: deck.title,
@@ -37,8 +47,16 @@ export default function DeckDetails(props) {
           style={styles.button}
         >
           <Text style={styles.smallText}>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </TouchableOpacity> */}
+        <Button
+          onPress={() =>
+            props.navigation.navigate("Quiz", {
+              deck
+            })
+          }
+          label="Start Quiz"
+        />
+        {/* <TouchableOpacity
           style={styles.buttonInverse}
           onPress={() =>
             props.navigation.navigate("Quiz", {
@@ -47,7 +65,7 @@ export default function DeckDetails(props) {
           }
         >
           <Text style={[styles.smallText, { color: "#FFF" }]}>Start Quiz</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );

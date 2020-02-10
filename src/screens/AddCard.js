@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { addCardToDeck } from "../lib/api";
+import Button from "../components/Button";
 
 export default function AddCard(props) {
   const [question, setQuestion] = useState("");
@@ -47,13 +48,18 @@ export default function AddCard(props) {
       />
 
       <View style={{ flex: 0.5, alignItems: "center" }}>
-        <TouchableOpacity
+        <Button
+          disabled={!(question.length && answer.length)}
+          onPress={() => submit()}
+          label="Submit"
+        />
+        {/* <TouchableOpacity
           disabled={!(question.length && answer.length)}
           onPress={() => submit()}
           style={styles.button}
         >
           <Text style={styles.smallText}>Submit</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </KeyboardAvoidingView>
   );
