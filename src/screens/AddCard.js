@@ -54,13 +54,6 @@ export default function AddCard(props) {
           label="Submit"
           buttonType="medium"
         />
-        {/* <TouchableOpacity
-          disabled={!(question.length && answer.length)}
-          onPress={() => submit()}
-          style={styles.button}
-        >
-          <Text style={styles.smallText}>Submit</Text>
-        </TouchableOpacity> */}
       </View>
     </KeyboardAvoidingView>
   );

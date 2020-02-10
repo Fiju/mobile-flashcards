@@ -35,16 +35,6 @@ export default function(props) {
             }}
             label="Retake"
           />
-          {/* <TouchableOpacity
-            style={[styles.button, { borderWidth: 2 }]}
-            onPress={() => {
-              setCurrentQuestion(1);
-              toggleAnswerView(false);
-              setCorrectAnswers(0);
-            }}
-          >
-            <Text style={{ fontSize: 25, textAlign: "center" }}>Retake</Text>
-          </TouchableOpacity> */}
           <Button
             onPress={() => {
               clearLocalNotification();
@@ -52,15 +42,6 @@ export default function(props) {
             }}
             label="Go back"
           />
-          {/* <TouchableOpacity
-            style={[styles.button, { borderWidth: 2 }]}
-            onPress={() => {
-              clearLocalNotification();
-              props.navigation.goBack();
-            }}
-          >
-            <Text style={{ fontSize: 25, textAlign: "center" }}>Go Back</Text>
-          </TouchableOpacity> */}
         </View>
       ) : (
         <>
@@ -112,16 +93,6 @@ export default function(props) {
                 label="Correct"
                 buttonType="small"
               />
-              {/* <TouchableOpacity
-                style={[styles.button, { backgroundColor: "green" }]}
-                onPress={() => {
-                  toggleAnswerView(false);
-                  setCorrectAnswers(correctAnsers + 1);
-                  setCurrentQuestion(currentQuestion + 1);
-                }}
-              >
-                <Text style={{ fontSize: 25, color: "white" }}>Correct</Text>
-              </TouchableOpacity> */}
               <Button
                 onPress={() => {
                   toggleAnswerView(false);
@@ -130,15 +101,6 @@ export default function(props) {
                 label="Incorrect"
                 buttonType="small"
               />
-              {/* <TouchableOpacity
-                style={[styles.button, { backgroundColor: "red" }]}
-                onPress={() => {
-                  toggleAnswerView(false);
-                  setCurrentQuestion(currentQuestion + 1);
-                }}
-              >
-                <Text style={{ fontSize: 25, color: "white" }}>Incorrect</Text>
-              </TouchableOpacity> */}
             </View>
           </View>
         </>

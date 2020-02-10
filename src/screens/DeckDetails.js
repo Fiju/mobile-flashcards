@@ -38,17 +38,6 @@ export default function DeckDetails(props) {
           label="Add card"
           buttonType="medium"
         />
-        {/* <TouchableOpacity
-          onPress={() =>
-            props.navigation.navigate("AddCard", {
-              deckKey: deck.title,
-              update: onCardAdd
-            })
-          }
-          style={styles.button}
-        >
-          <Text style={styles.smallText}>Add Card</Text>
-        </TouchableOpacity> */}
         <Button
           onPress={() =>
             props.navigation.navigate("Quiz", {
@@ -58,16 +47,6 @@ export default function DeckDetails(props) {
           label="Start Quiz"
           buttonType="medium"
         />
-        {/* <TouchableOpacity
-          style={styles.buttonInverse}
-          onPress={() =>
-            props.navigation.navigate("Quiz", {
-              deck
-            })
-          }
-        >
-          <Text style={[styles.smallText, { color: "#FFF" }]}>Start Quiz</Text>
-        </TouchableOpacity> */}
       </View>
     </View>
   );

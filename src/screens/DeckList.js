@@ -59,12 +59,6 @@ export default function DeckList(props) {
             label="Add new deck"
             buttonType="large"
           />
-          {/* <TouchableOpacity
-            style={styles.button}
-            onPress={() => toggleView(!view)}
-          >
-            <Text style={styles.smallText}>Add new deck</Text>
-          </TouchableOpacity> */}
         </>
       ) : (
         <AddDeck

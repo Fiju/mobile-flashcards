@@ -38,33 +38,11 @@ export default function AddDeck(props) {
         label="Submit"
         buttonType="medium"
       />
-      {/* <TouchableOpacity
-        disabled={!title}
-        style={styles.buttonStyle}
-        onPress={
-          title
-            ? async () => {
-                await saveDeckTitle(title);
-                const decks = await getDecks();
-                props.toggleView();
-                props.navigate(decks[title]);
-              }
-            : () => {}
-        }
-      >
-        <Text style={{ fontSize: 20 }}>Submit</Text>
-      </TouchableOpacity> */}
       <Button
         onPress={() => props.toggleView()}
         label="Go back"
         buttonType="medium"
       />
-      {/* <TouchableOpacity
-        style={styles.buttonStyle}
-        onPress={() => props.toggleView()}
-      >
-        <Text style={{ fontSize: 20 }}>Go back</Text>
-      </TouchableOpacity> */}
     </KeyboardAvoidingView>
   );
 }
